@@ -6,7 +6,8 @@
     "start": "next start",
     "seed": "node -r dotenv/config ./scripts/seed.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "homepage": "https://jamespeterjacob.github.io/firstnext/"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
