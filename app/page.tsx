@@ -3,8 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 //import { lusitana } from '@/app/ui/fonts';
 
-export default function Page() {
+export default async function Page() {
+  const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
+  const data = await res.json()
+
   return (
+
+
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         {/* <AcmeLogo /> */}
