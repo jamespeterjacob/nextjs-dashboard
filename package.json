@@ -6,8 +6,7 @@
     "start": "next start",  
     "seed": "node -r dotenv/config ./scripts/seed.js",
     "predeploy": "npm run build",
-    "deploy": "npm run deploy",
-    "homepage": "https://jamespeterjacob.github.io/firstnext/"
+    "deploy": "npm run deploy"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
