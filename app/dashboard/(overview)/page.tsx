@@ -9,7 +9,7 @@ import {
     fetchCardData,
   } from '@/app/lib/data';
   import { Suspense } from 'react';
-  import { RevenueChartSkeleton, LatestInvoicesSkeleton } from '@/app/ui/dashboard/skeletons';
+  import { RevenueChartSkeleton, LatestInvoicesSkeleton } from '@/app/ui/skeletons';
 
  
 export default async function Page() {
