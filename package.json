@@ -5,7 +5,6 @@
     "dev": "next dev",
     "start": "next start",
     "seed": "node -r dotenv/config ./scripts/seed.js",
-    "static": "next build && next export && touch ./out/.nojekyll && echo",
     "predeploy": "npm run build",
     "deploy": "npm run deploy",
     "homepage": "https://jamespeterjacob.github.io/firstnext/"
