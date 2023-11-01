@@ -13,8 +13,8 @@ const InvoiceSchema = z.object({
   });
 
   const CreateInvoice = InvoiceSchema.omit({ id: true, date: true });
-  const UpdateInvoice = InvoiceSchema.omit({ date: true });
-  //const UpdateInvoice = FormSchema.omit({ date: true, id: true });
+  const UpdateInvoice = InvoiceSchema.omit({ date: true, id: true });
+  const DeleteInvoice = InvoiceSchema.omit({ date: true, id: true });
 
 export async function createInvoice(formData: FormData) {
     const { customerId, amount, status } = CreateInvoice.parse({
@@ -63,7 +63,7 @@ export async function updateInvoice(id: string, formData: FormData) {
 }
 
 export async function deleteInvoice(id: string) {
-  throw new Error('Failed to Delete Invoice');
+  //throw new Error('Failed to Delete Invoice');
 
   // Unreachable code block
   try {
@@ -74,4 +74,3 @@ export async function deleteInvoice(id: string) {
     return { message: 'Database Error: Failed to Delete Invoice.' };
   }
 }
-   
