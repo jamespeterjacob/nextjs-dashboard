@@ -7,7 +7,7 @@
     "seed": "node -r dotenv/config ./scripts/seed.js",
     "static": "next build && next export && touch ./out/.nojekyll && echo",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -t true",
+    "deploy": "npm run deploy",
     "homepage": "https://jamespeterjacob.github.io/firstnext/"
   },
   "dependencies": {
