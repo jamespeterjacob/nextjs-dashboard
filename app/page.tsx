@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 //import { lusitana } from '@/app/ui/fonts';
 
-export default async function Page() {
-  const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
-  const data = await res.json()
+export default function Page() {
+  // const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
+  // const data = await res.json()
 
   return (
 
