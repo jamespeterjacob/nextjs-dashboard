@@ -6,7 +6,7 @@ import CardWrapper from '@/app/ui/dashboard/cards';
 import { lusitana } from '@/app/ui/fonts';
 import { 
     //fetchRevenue,
-    //fetchLatestInvoices,
+    fetchLatestInvoices,
     fetchCardData,
   } from '@/app/lib/data';
   import { Suspense } from 'react';
@@ -15,7 +15,7 @@ import {
  
 export default async function Page() {
     //const revenue = await fetchRevenue();
-  //const latestInvoices = await fetchLatestInvoices();
+  const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfInvoices,
     numberOfCustomers,
@@ -46,10 +46,10 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
-        <Suspense fallback={<LatestInvoicesSkeleton />}>
+        <LatestInvoices latestInvoices={latestInvoices} />
+        {/* <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
-        </Suspense>
+        </Suspense> */}
       </div>
     </main>
   );
