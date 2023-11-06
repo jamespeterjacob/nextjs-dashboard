@@ -6,7 +6,7 @@ import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import { lusitana } from '@/app/ui/fonts';
 import { 
     //fetchRevenue,
-    //fetchLatestInvoices,
+    fetchLatestInvoices,
     fetchCardData,
   } from '@/app/lib/data';
   import { Suspense } from 'react';
@@ -15,7 +15,7 @@ import {
  
 export default async function Page() {
     //const revenue = await fetchRevenue();
-  //const latestInvoices = await fetchLatestInvoices();
+  const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfInvoices,
     numberOfCustomers,
@@ -29,14 +29,14 @@ export default async function Page() {
         Dashboard
       </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <Card title="Collected" value={totalPaidInvoices} type="collected" />
+        {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
         <Card title="Pending" value={totalPendingInvoices} type="pending" />
         <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
         <Card
           title="Total Customers"
           value={numberOfCustomers}
           type="customers"
-        />
+        /> */}
         <Suspense fallback={<CardsSkeleton />}>
           <CardWrapper />
         </Suspense>
@@ -46,7 +46,7 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
+        <LatestInvoices latestInvoices={latestInvoices} />
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
         </Suspense>
