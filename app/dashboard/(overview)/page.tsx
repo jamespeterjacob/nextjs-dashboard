@@ -5,7 +5,7 @@ import CardWrapper from '@/app/ui/dashboard/cards';
 
 import { lusitana } from '@/app/ui/fonts';
 import { 
-    //fetchRevenue,
+    fetchRevenue,
     fetchLatestInvoices,
     fetchCardData,
   } from '@/app/lib/data';
@@ -14,7 +14,7 @@ import {
 
  
 export default async function Page() {
-    //const revenue = await fetchRevenue();
+  const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfInvoices,
@@ -42,10 +42,10 @@ export default async function Page() {
         </Suspense>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        {/* <RevenueChart revenue={revenue} /> */}
-        <Suspense fallback={<RevenueChartSkeleton />}>
+        <RevenueChart revenue={revenue} />
+        {/* <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
-        </Suspense>
+        </Suspense> */}
         <LatestInvoices latestInvoices={latestInvoices} />
         {/* <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
