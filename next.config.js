@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    skipTrailingSlashRedirect: true,
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'nextjs-dashboard-orcin-eta.vercel.app',
+            port: '',
+            pathname: '/dashboard/**',
+          },
+        ],
+      },
 };
 
 module.exports = nextConfig;
