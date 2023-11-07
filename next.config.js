@@ -6,7 +6,7 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'nextjs-dashboard-orcin-eta.vercel.app',
             port: '',
-            pathname: '/dashboard/**',
+            pathname: '/customers/**',
           },
         ],
       },
