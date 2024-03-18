@@ -94,11 +94,7 @@ export async function fetchCardData() {
 }
 
 const ITEMS_PER_PAGE = 6;
-export async function fetchFilteredInvoices(
-  
-  query: string,
-  currentPage: number,
-) {
+export async function fetchFilteredInvoices(query: string, currentPage: number) {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   noStore();
   try {
@@ -178,7 +174,7 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
-export async function fetchCustomers(query: string) {
+export async function fetchCustomers() {
   noStore();
   try {
     const data = await sql<CustomerField>`
@@ -197,7 +193,7 @@ export async function fetchCustomers(query: string) {
   }
 }
 
-export async function fetchFilteredCustomers(query: string) {
+export async function fetchFilteredCustomers(query: string, currentPage: number) {
   noStore();
   try {
     const data = await sql<CustomersTable>`
