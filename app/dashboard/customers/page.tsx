@@ -16,9 +16,9 @@ export default async function Page({
     page?: string;
   };
 }) {
-  //const query = searchParams?.query || '';
-  //const currentPage = Number(searchParams?.page) || 1;
-  const customers = await fetchCustomers();
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+  const customers = await fetchCustomers(query);
 
   return (
     <div className="w-full">
@@ -30,10 +30,10 @@ export default async function Page({
         <CreateCustomer />
         
       </div>
-      {/* <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+      <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
-      </Suspense> */}
-      <Table customers={[]}></Table>
+      </Suspense>
+     {/*  <Table customers={[]}></Table> */}
       <div className="mt-5 flex w-full justify-center">
       {/* <Pagination totalPages={totalPages} /> */}
       </div>
