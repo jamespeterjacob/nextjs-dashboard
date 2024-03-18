@@ -4,6 +4,7 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
+import { invoices, customers } from './placeholder-data';
 
 
 export async function authenticate(
@@ -23,7 +24,7 @@ export async function authenticate(
 const InvoiceSchema = z.object({
     id: z.string(),
     customerId: z.string({
-      invalid_type_error: 'Please select a customer.',
+      invalid_type_error: 'Please select...',
     }),
     amount: z.coerce
     .number()
@@ -37,6 +38,9 @@ const InvoiceSchema = z.object({
   const CreateInvoice = InvoiceSchema.omit({ id: true, date: true });
   const UpdateInvoice = InvoiceSchema.omit({ date: true, id: true });
   const DeleteInvoice = InvoiceSchema.omit({ date: true, id: true });
+  /* const CreateCustomer = customers.omit({ id: true });
+  const UpdateCustomer = CustomerSchema.omit({ date: true, id: true });
+  const DeleteCustomer = CustomerSchema.omit({ date: true, id: true }); */
 
   export type State = {
     errors?: {
@@ -122,5 +126,51 @@ export async function deleteInvoice(id: string) {
     return { message: 'Deleted Invoice.' };
   } catch (error) {
     return { message: 'Database Error: Failed to Delete Invoice.' };
+  }
+}
+
+export async function createCustomer(prevState: State, formData: FormData) {
+  const validatedFields = CreateInvoice.safeParse({
+    customerId: formData.get('customerId'),
+    amount: formData.get('amount'),
+    status: formData.get('status'),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Customer.',
+    };
+  }
+
+  // Prepare data for insertion into the database
+const { customerId, amount, status } = validatedFields.data;
+const amountInCents = amount * 100;
+const date = new Date().toISOString().split('T')[0];
+
+  try {
+    await sql`
+      INSERT INTO invoices (customer_id, amount, status, date)
+      VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+    `;
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to Create Invoice.',
+    };
+  }
+revalidatePath('/dashboard/invoices');
+redirect('/dashboard/invoices');
+}
+
+export async function deleteCustomer(id: string) {
+  //throw new Error('Failed to Delete Invoice');
+
+  // Unreachable code block
+  try {
+    await sql`DELETE FROM customers WHERE id = ${id}`;
+    revalidatePath('/dashboard/customers');
+    return { message: 'Deleted Customer.' };
+  } catch (error) {
+    return { message: 'Database Error: Failed to Delete Customer.' };
   }
 }
