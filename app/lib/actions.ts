@@ -38,9 +38,23 @@ const InvoiceSchema = z.object({
   const CreateInvoice = InvoiceSchema.omit({ id: true, date: true });
   const UpdateInvoice = InvoiceSchema.omit({ date: true, id: true });
   const DeleteInvoice = InvoiceSchema.omit({ date: true, id: true });
-  /* const CreateCustomer = customers.omit({ id: true });
+
+  const CustomerSchema = z.object({
+    id: z.string(),
+    customerId: z.string({
+      invalid_type_error: 'Please select...',
+    }),
+    amount: z.coerce
+    .number()
+    .gt(0, { message: 'Please enter an amount greater than $0.' }),
+  status: z.enum(['pending', 'paid'], {
+    invalid_type_error: 'Please select an invoice status.',
+  }),
+  date: z.string(),
+  });
+  const CreateCustomer = CustomerSchema.omit({ id: true, date: true });
   const UpdateCustomer = CustomerSchema.omit({ date: true, id: true });
-  const DeleteCustomer = CustomerSchema.omit({ date: true, id: true }); */
+  const DeleteCustomer = CustomerSchema.omit({ date: true, id: true });
 
   export type State = {
     errors?: {
