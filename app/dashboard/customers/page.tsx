@@ -1,6 +1,6 @@
 import Pagination from '@/app/ui/customers/pagination';
 import Search from '@/app/ui/search';
-import Table from '@/app/ui/customers/table';
+//import Table from '@/app/ui/customers/table';
 import { CreateCustomer } from '@/app/ui/customers/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
