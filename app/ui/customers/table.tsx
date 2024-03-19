@@ -56,6 +56,7 @@ export default async function CustomersTable({
             ))}
           </div>
           <table className="hidden min-w-full text-gray-900 md:table">
+            <p>Where am I?</p>
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
