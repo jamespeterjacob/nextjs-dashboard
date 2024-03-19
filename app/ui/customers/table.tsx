@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { UpdateCustomer, DeleteCustomer  } from '@/app/ui/customers/buttons';
-import InvoiceStatus from '@/app/ui/invoices/status';
+//import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredCustomers } from '@/app/lib/data';
-import { invoices } from '@/app/lib/placeholder-data';
+//import { invoices } from '@/app/lib/placeholder-data';
 
 export default async function CustomersTable({
   query,
@@ -38,7 +38,7 @@ export default async function CustomersTable({
                     </div>
                     <p className="text-sm text-gray-500">{customer.email}</p>
                   </div>
-                  <InvoiceStatus status={invoices.s} />
+                 {/*  <InvoiceStatus status={invoices.s} /> */}
                 </div>
                {/*  <div className="flex w-full items-center justify-between pt-4">
                   <div>
