@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { UpdateCustomer, DeleteCustomer  } from '@/app/ui/customers/buttons';
-import InvoiceStatus from '@/app/ui/invoices/status';
+//import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredCustomers } from '@/app/lib/data';
-import { invoices } from '@/app/lib/placeholder-data';
+//import { invoices } from '@/app/lib/placeholder-data';
 
 export default async function CustomersTable({
   query,
@@ -105,9 +105,9 @@ export default async function CustomersTable({
                   {/* <td className="whitespace-nowrap px-3 py-3">
                     {formatDateToLocal(invoice.date)}
                   </td> */}
-                  <td className="whitespace-nowrap px-3 py-3">
+                  {/* <td className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={customer.total_paid} />
-                  </td>
+                  </td> */}
                   {/* <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
                       <UpdateInvoice id={invoice.id} />
