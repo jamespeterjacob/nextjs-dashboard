@@ -9,14 +9,14 @@ import { fetchCustomers } from '@/app/lib/data';
 import Image from 'next/image';
 import { customers } from '@/app/lib/placeholder-data';
  
-export default async function Page({
-  searchParams,
+export default async function Page() {
+  /* searchParams,
 }: {
   searchParams?: {
     query?: string;
     page?: string;
   };
-}) {
+}) { */
   //const query = searchParams?.query || '';
   //const currentPage = Number(searchParams?.page) || 1;
   const custs = await fetchCustomers();
@@ -38,7 +38,7 @@ export default async function Page({
       <div key={customers.id}>{customers.name}</div> 
       )}
 
-      
+
       <div className="mt-5 flex w-full justify-center">
      {/*  <Pagination totalPages={totalPages} /> */}
       </div>
