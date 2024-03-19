@@ -32,9 +32,9 @@ export default async function Page({
         <CreateCustomer />
         
       </div>
-      <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+      {/* <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
-      </Suspense>
+      </Suspense> */}
       <div className="mt-5 flex w-full justify-center">
       <Pagination totalPages={totalPages} />
       </div>
