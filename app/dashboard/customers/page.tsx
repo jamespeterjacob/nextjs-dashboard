@@ -11,15 +11,15 @@ import { customers } from '@/app/lib/placeholder-data';
  
 export default async function Page() {
   
-  const custs = await fetchCustomers();
+  //const custs = await fetchCustomers();
 
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-between">
-        <h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
-        {custs.map((customers) =>
+        <h1 className={`${lusitana.className} text-2xl`}>Customers</h1>
+       {/*  {custs.map((customers) =>
       <div key={customers.id}>{customers.name}</div> 
-      )}
+      )} */}
       </div>
     </div>
   );
