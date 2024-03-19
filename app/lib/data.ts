@@ -170,7 +170,7 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
-export async function fetchCustomers(query: string) {
+export async function fetchCustomers() {
   noStore();
   try {
     const data = await sql<CustomerField>`
