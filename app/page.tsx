@@ -4,8 +4,8 @@ import Link from 'next/link';
 //import { lusitana } from '@/app/ui/fonts';
 
 export default function Page() {
-  // const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
-  // const data = await res.json()
+   //const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
+   //const data = await res.json()
 
   return (
 
