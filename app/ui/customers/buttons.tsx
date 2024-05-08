@@ -27,7 +27,7 @@ export function UpdateCustomer({ id }: { id: string }) {
 
 export function DeleteCustomer({ id }: { id: string }) {
   const deleteCustomerWithId = deleteCustomer.bind(null, id);
-  
+  //test
   return (
     
     <form action={deleteCustomerWithId}>

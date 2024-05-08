@@ -115,6 +115,7 @@ export default async function CustomersTable({
                       <UpdateInvoice id={invoice.id} />
                       <DeleteInvoice id={invoice.id} />
                     </div>
+                    test
                   </td> */}
                 </tr>
               ))}
