@@ -219,7 +219,7 @@ export async function fetchCustomersPages(query: string, currentPage:number) {
 }
 
 
-export async function fetchFilteredCustomers(query: string) {
+export async function fetchFilteredCustomers(query: string, currentPage:number) {
   const ITEMS_PER_PAGE = 6;
   noStore();
   try {
