@@ -254,7 +254,7 @@ export function CustomersTableSkeleton() {
                 <th scope="col" className="px-3 py-5 font-medium">
                   Email
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+               {/*  <th scope="col" className="px-3 py-5 font-medium">
                   Amount
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
@@ -262,7 +262,7 @@ export function CustomersTableSkeleton() {
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status
-                </th>
+                </th> */}
                 <th
                   scope="col"
                   className="relative pb-4 pl-3 pr-6 pt-2 sm:pr-6"
