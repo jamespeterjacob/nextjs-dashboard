@@ -189,8 +189,9 @@ export async function fetchCustomers() {
   }
 }
 
-const CUST_PER_PAGE = 6;
+
 export async function fetchFilteredCustomers(query: string, currentPage:number ) {
+  const CUST_PER_PAGE = 6;
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   noStore();
   try {
@@ -238,6 +239,7 @@ export async function getUser(email: string) {
 }
 
 export async function fetchCustomersPages(query: string) {
+  const CUST_PER_PAGE = 6;
   noStore();
   try {
     const count = await sql`SELECT COUNT(*)
