@@ -2,7 +2,14 @@
 const nextConfig = {
     //output: 'export',
     images: {
-        domains: ['nextjs-dashboard-orcin-eta.vercel.app/dashboard/customers/**'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'nextjs-dashboard-orcin-eta.vercel.app',
+                port: '',
+                pathname: '/dashboard/customers/**',
+            },
+        ],
     },
 };
 
