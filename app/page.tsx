@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Page() {
    //const res = await fetch('https://jamespeterjacob.github.io/firstnext/')
-   //const data = await res.json()
+   //const test data = await res.json()
 
   return (
 
