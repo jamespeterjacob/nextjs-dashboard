@@ -3,52 +3,58 @@ import { UpdateCustomer, DeleteCustomer } from '@/app/ui/customers/buttons';
 //import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredCustomers } from '@/app/lib/data';
+import { customers } from '@/app/lib/placeholder-data';
 
-
-export default async function CustomersTable({query,currentPage}:{query: string;currentPage: number}) {
-  const customers = await fetchFilteredCustomers(query, currentPage);
+export default async function CustomersTable({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const invoices = await fetchFilteredCustomers(query, currentPage);
 
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
-          <div className="md:hidden">
-            {customers?.map((customer) => (
+         {/*  <div className="md:hidden">
+            {invoices?.map((invoice) => (
               <div
-                key={customer.id}
+                key={invoice.id}
                 className="mb-2 w-full rounded-md bg-white p-4"
               >
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={customer.image_url}
+                        src={invoice.image_url}
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
-                        alt={`${customer.name}'s profile picture`}
+                        alt={`${invoice.name}'s profile picture`}
                       />
-                      <p>{customer.name}</p>
+                      <p>{invoice.name}</p>
                     </div>
-                    <p className="text-sm text-gray-500">{customer.email}</p>
+                    <p className="text-sm text-gray-500">{invoice.email}</p>
                   </div>
-                  {/* <InvoiceStatus status={invoice.status} /> */}
+                  <InvoiceStatus status={invoice.status} />
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
-                  {/* <div>
+                  <div>
                     <p className="text-xl font-medium">
                       {formatCurrency(invoice.amount)}
                     </p>
                     <p>{formatDateToLocal(invoice.date)}</p>
-                  </div> */}
+                  </div>
                   <div className="flex justify-end gap-2">
-                    <UpdateCustomer id={customer.id} />
-                    <DeleteCustomer id={customer.id} />
+                    <UpdateInvoice id={invoice.id} />
+                    <DeleteInvoice id={invoice.id} />
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
           <table className="hidden min-w-full text-gray-900 md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
@@ -58,7 +64,7 @@ export default async function CustomersTable({query,currentPage}:{query: string;
                 <th scope="col" className="px-3 py-5 font-medium">
                   Email
                 </th>
-               {/*  <th scope="col" className="px-3 py-5 font-medium">
+                {/* <th scope="col" className="px-3 py-5 font-medium">
                   Amount
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
@@ -93,7 +99,7 @@ export default async function CustomersTable({query,currentPage}:{query: string;
                   <td className="whitespace-nowrap px-3 py-3">
                     {customer.email}
                   </td>
-                 {/*  <td className="whitespace-nowrap px-3 py-3">
+                  {/* <td className="whitespace-nowrap px-3 py-3">
                     {formatCurrency(invoice.amount)}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
