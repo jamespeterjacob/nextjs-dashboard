@@ -27,12 +27,12 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <Form customers={customers} invoice={{
-              id: '',
-              customer_id: '',
-              amount: 0,
-              status: 'pending'
-          }} />
+      <Form invoice={{
+        id: '',
+        customer_id: '',
+        amount: 0,
+        status: 'pending'
+      }} customers={[]} />
     </main>
   );
 }
