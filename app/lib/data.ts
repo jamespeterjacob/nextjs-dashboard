@@ -269,9 +269,10 @@ export async function getUser(email: string) {
 
 export async function fetchCustomersPages(query: string, currentPage:number) {
   const ITEMS_PER_PAGE = 6;
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   noStore();
   try {
-    const count = await sql`SELECT COUNT(*)
+    const count = await sql`SELECT 
     FROM customers
     
     WHERE
