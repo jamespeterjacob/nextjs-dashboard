@@ -46,7 +46,7 @@ export async function fetchLatestInvoices() {
       ORDER BY invoices.date DESC
       LIMIT 5`;
 
-    const latestInvoices = data.rows.map((invoice) => ({
+    const latestInvoices = data.rows.map((invoice:any) => ({
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
@@ -166,13 +166,37 @@ export async function fetchInvoiceById(id: string) {
       WHERE invoices.id = ${id};
     `;
 
-    const invoice = data.rows.map((invoice) => ({
+    const invoice = data.rows.map((invoice:any) => ({
       ...invoice,
       // Convert where test test amount from cents to dollars
       amount: invoice.amount / 100,
     }));
 
     return invoice[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+  }
+}
+
+export async function fetchCustomerById(id: string) {
+  noStore();
+  try {
+    const data = await sql<CustomerField>`
+      SELECT
+        customer.id,
+        customer.name,
+        customer.email
+      FROM customers
+      WHERE customer.id = ${id};
+    `;
+
+    const customer = data.rows.map((customer:any) => ({
+      ...customer,
+      // Convert where test test amount from cents to dollars
+      //amount: invoice.amount / 100,
+    }));
+
+    return customer[0];
   } catch (error) {
     console.error('Database Error:', error);
   }
@@ -220,7 +244,7 @@ export async function fetchFilteredCustomers(query: string, currentPage:number) 
 		ORDER BY customers.name ASC
 	  `;
 
-    const customers = data.rows.map((customer) => ({
+    const customers = data.rows.map((customer:any) => ({
       ...customer,
       /* total_pending: formatCurrency(customer.total_pending),
       total_paid: formatCurrency(customer.total_paid), */
