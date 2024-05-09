@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 import { fetchCustomersPages } from '@/app/lib/data';
 import Image from 'next/image';
  
-//est
 export default async function Page({
   searchParams,
 }: {
