@@ -1,17 +1,10 @@
 import Image from 'next/image';
-import { UpdateCustomer, DeleteCustomer  } from '@/app/ui/customers/buttons';
+import { UpdateCustomer, DeleteCustomer } from '@/app/ui/customers/buttons';
 //import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredCustomers } from '@/app/lib/data';
-//import { invoices } from '@/app/lib/placeholder-data';
 
-export default async function CustomersTable({
-  query,
-  currentPage,
-}: {
-  query: string;
-  currentPage: number;
-}) {
+export default async function CustomersTable({query,currentPage}:{query: string;currentPage: number}) {
   const customers = await fetchFilteredCustomers(query, currentPage);
 
   return (
@@ -38,25 +31,24 @@ export default async function CustomersTable({
                     </div>
                     <p className="text-sm text-gray-500">{customer.email}</p>
                   </div>
-                 {/*  <InvoiceStatus status={invoices.s} /> */}
+                  {/* <InvoiceStatus status={invoice.status} /> */}
                 </div>
-               {/*  <div className="flex w-full items-center justify-between pt-4">
-                  <div>
+                <div className="flex w-full items-center justify-between pt-4">
+                  {/* <div>
                     <p className="text-xl font-medium">
                       {formatCurrency(invoice.amount)}
                     </p>
                     <p>{formatDateToLocal(invoice.date)}</p>
-                  </div>
+                  </div> */}
                   <div className="flex justify-end gap-2">
-                    <UpdateInvoice id={invoice.id} />
-                    <DeleteInvoice id={invoice.id} />
+                    <UpdateCustomer id={customer.id} />
+                    <DeleteCustomer id={customer.id} />
                   </div>
-                </div> */}
+                </div>
               </div>
             ))}
           </div>
           <table className="hidden min-w-full text-gray-900 md:table">
-            <p>Where am I?</p>
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -65,7 +57,7 @@ export default async function CustomersTable({
                 <th scope="col" className="px-3 py-5 font-medium">
                   Email
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+               {/*  <th scope="col" className="px-3 py-5 font-medium">
                   Amount
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
@@ -73,14 +65,13 @@ export default async function CustomersTable({
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status
-                </th>
+                </th> */}
                 <th scope="col" className="relative py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
                 </th>
               </tr>
             </thead>
             <tbody className="bg-white">
-              <p>Where am I?</p>
               {customers?.map((customer) => (
                 <tr
                   key={customer.id}
@@ -102,21 +93,20 @@ export default async function CustomersTable({
                     {customer.email}
                   </td>
                  {/*  <td className="whitespace-nowrap px-3 py-3">
-                    {formatCurrency(customer.total_invoices)}
-                  </td> */}
-                  {/* <td className="whitespace-nowrap px-3 py-3">
+                    {formatCurrency(invoice.amount)}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3">
                     {formatDateToLocal(invoice.date)}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3">
+                    <InvoiceStatus status={invoice.status} />
                   </td> */}
-                  {/* <td className="whitespace-nowrap px-3 py-3">
-                    <InvoiceStatus status={customer.total_paid} />
-                  </td> */}
-                  {/* <td className="whitespace-nowrap py-3 pl-6 pr-3">
+                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
-                      <UpdateInvoice id={invoice.id} />
-                      <DeleteInvoice id={invoice.id} />
+                      <UpdateCustomer id={customer.id} />
+                      <DeleteCustomer id={customer.id} />
                     </div>
-                    test
-                  </td> */}
+                  </td>
                 </tr>
               ))}
             </tbody>
