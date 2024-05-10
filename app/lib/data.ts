@@ -153,7 +153,7 @@ export async function fetchInvoicesPages(query: string,currentPage: number) {
   }
 }
 
-export async function fetchInvoiceById(id: string) {
+export async function fetchInvoiceById(id:string) {
   noStore();
   try {
     const data = await sql<InvoiceForm>`
