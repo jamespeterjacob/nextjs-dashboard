@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           { label: 'Invoices', href: '/dashboard/invoices' },
           {
             label: 'Edit Invoice',
-            href: `/dashboard/invoices/edit/${id}`,
+            href: `/dashboard/invoices/${id}/edit`,
             active: true,
           },
         ]}
