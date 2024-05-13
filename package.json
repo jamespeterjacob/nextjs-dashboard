@@ -7,7 +7,7 @@
     "seed": "node -r dotenv/config ./scripts/seed.js",
     "predeploy": "next build",
     "deploy": "gh-pages -d out -t true",
-    "homepage": "https://nextjs-dashboard-orcin-eta.vercel.app/api/auth"
+    "homepage": ""
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
