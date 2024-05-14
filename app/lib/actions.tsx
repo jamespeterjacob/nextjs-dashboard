@@ -100,6 +100,12 @@ const InvoiceSchema = z.object({
 }
 
 export async function updateInvoice(id: string, prevState: State, formData: FormData) {
+  /* const { customerId, amount, status } = UpdateInvoice.parse({
+    customerId: formData.get('customerId'),
+    amount: formData.get('amount'),
+    status: formData.get('status'),
+  }); */
+  
   const validatedFields = UpdateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
