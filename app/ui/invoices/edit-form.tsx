@@ -20,7 +20,7 @@ export default function EditInvoiceForm({
 }) {
   //const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   return (
-    <form>
+    <form >
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Invoice ID */}
         <input type="hidden" name="id" value={invoice.id} />
