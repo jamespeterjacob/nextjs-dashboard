@@ -4,6 +4,7 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
+import { signOut } from '@/auth';
 import { invoices, customers } from './placeholder-data';
 
 //test
@@ -19,6 +20,14 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function handleSignOut() {
+  await signOut({
+    // Optional: You can specify a redirectTo path after sign-out.
+    // If not specified, NextAuth.js might redirect to the homepage or a default sign-in page.
+    // redirectTo: '/login',
+  });
 }
 
 const InvoiceSchema = z.object({
@@ -182,7 +191,7 @@ revalidatePath('/dashboard/invoices');
 redirect('/dashboard/invoices');
 }
 
-export async function udateCustomer(id: string, prevState: State, formData: FormData) {
+export async function updateCustomer(id: string, prevState: State, formData: FormData) {
   const validatedFields = UpdateCustomer.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
